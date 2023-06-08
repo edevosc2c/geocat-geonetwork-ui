@@ -67,7 +67,7 @@ export const mapLink = (
   sourceLink: SourceWithUnknownProps
 ): MetadataLink | null => {
   const url = getAsUrl(selectField<string>(sourceLink, 'url'))
-  // no url: fail early
+  // no url: fail early ok
   if (url === null) {
     // TODO: collect errors at the record level?
     console.warn('A link without valid URL was found', sourceLink)
