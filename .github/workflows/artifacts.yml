@@ -103,6 +103,6 @@ jobs:
       - name: Push all docker images
         # list all docker images, keep only the ones in the geonetwork org, and call docker push for each of them
         run: |
-          docker image ls
+          docker image ls --format '{{.Repository}}:{{.Tag}}' --filter=reference='camptocamp/*'
           docker image ls --format '{{.Repository}}:{{.Tag}}' --filter=reference='camptocamp/*' | \
           xargs -r -L1 docker push ghcr.io/$1
